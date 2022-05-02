@@ -1,5 +1,5 @@
 import logoImg from '../../assets/logo.png';
-
+import Carticon from '../CartIcon/CartIcon';
 
 export default function Navbar(){
     const linkstyle = {
@@ -20,7 +20,7 @@ export default function Navbar(){
                 <li>Libros</li>
                 <li>Login</li>
             </ul>
-
+        <Carticon count={2} />
         </header>
     );
 }
