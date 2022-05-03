@@ -12,7 +12,7 @@ export default function Navbar(){
         <header className="header">
             <Carticon count={2} />
             <div className="logo">
-                <img src={logoImg}/>
+                <img alt="logo" src={logoImg}/>
             </div>
             <ul className="links" style = {linkstyle}>
                 <li>Inicio</li>
