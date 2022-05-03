@@ -2,3 +2,13 @@ h1 {
     color: #333;
     text-align: center;
 }
+
+.carticon {
+    height: 20px;
+}
+
+
+.carticon-holder {
+    float: right;
+    margin: 25px;
+}

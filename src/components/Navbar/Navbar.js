@@ -10,6 +10,7 @@ export default function Navbar(){
     }
     return(
         <header className="header">
+            <Carticon count={2} />
             <div className="logo">
                 <img src={logoImg}/>
             </div>
@@ -20,7 +21,7 @@ export default function Navbar(){
                 <li>Libros</li>
                 <li>Login</li>
             </ul>
-        <Carticon count={2} />
+        
         </header>
     );
 }
