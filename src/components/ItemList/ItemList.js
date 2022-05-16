@@ -8,7 +8,7 @@ export default function ItemList({items,  onAdd}){
                 <Row>
                     {items.map((product) => {
                         return(
-                            <Col md={{ span: 4 }}>
+                            <Col key={product.id} md={{ span: 4 }}>
                                 <Item key={product.id} item = {product} onAdd={onAdd}/>                
                             </Col>
                         )                
