@@ -3,21 +3,23 @@ import ItemCount from '../ItemCount/ItemCount'
 import { toast } from "react-toastify";
 import {products} from "../../data/products"
 import ItemList from '../ItemList/ItemList';
-import React from "react"
+import React, { useEffect } from "react"
 
 export default function ItemListContainer({greeting}){
 
     const[productsItems, getProducts] = React.useState([])
 
-    const getProductsTask = new Promise((resolve,reject) =>{
-        setTimeout(() =>{
-            resolve(getProducts(products));
-        },3000)
+    useEffect( () => {
+        const getProductsTask = new Promise((resolve,reject) =>{
+            setTimeout(() =>{
+                resolve(getProducts(products));
+            },3000)
+        })
+        getProductsTask.then((result) =>{
+            console.log(result);
+        })
     })
-
-    getProductsTask.then((result) =>{
-        console.log(result);
-    })
+    
 
     const addTocart = (count) =>{
         console.log(`add to cart ${count} items`);
