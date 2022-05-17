@@ -3,12 +3,15 @@ import ItemCount from '../ItemCount/ItemCount'
 import { toast } from "react-toastify";
 import {products} from "../../data/products"
 import ItemList from '../ItemList/ItemList';
+import React from "react"
 
 export default function ItemListContainer({greeting}){
 
+    const[productsItems, getProducts] = React.useState([])
+
     const getProductsTask = new Promise((resolve,reject) =>{
         setTimeout(() =>{
-            resolve(products);
+            resolve(getProducts(products));
         },3000)
     })
 
@@ -34,7 +37,7 @@ export default function ItemListContainer({greeting}){
                 {greeting}
             </Alert>
             {/* <ItemCount stock='5' initial='1' onAdd={addTocart}/> */}
-            <ItemList items = {products} onAdd={addTocart}/>
+            <ItemList items = {productsItems} onAdd={addTocart}/>
         </>   
 
     )
