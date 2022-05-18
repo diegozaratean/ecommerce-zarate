@@ -18,7 +18,7 @@ export default function ItemListContainer({greeting}){
         getProductsTask.then((result) =>{
             console.log(result);
         })
-    })
+    },[])
     
 
     const addTocart = (count) =>{
