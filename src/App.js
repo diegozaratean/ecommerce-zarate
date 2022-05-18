@@ -1,13 +1,13 @@
-import Navbar from "./components/Navbar/Navbar"
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailtContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import Header from "./components/Header/Header";
 
 
 
 function App() {
   return (
     <>
-      <Navbar/> 
+      <Header/> 
       <ItemDetailtContainer />
       <ItemListContainer greeting={'Bienvenido a la tienda z commerce'} />   
     </>
