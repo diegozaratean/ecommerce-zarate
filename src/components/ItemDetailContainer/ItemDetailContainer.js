@@ -6,7 +6,7 @@ import React, { useEffect } from "react"
 export default function ItemDetailtContainer(){
 
     const[item, setItem] = React.useState([])
-    const[productsItems, getProducts] = React.useState([])
+    const[productsItems, getProducts] = React.useState(products)
 
     useEffect( () => {
         const getProductsTask = new Promise((resolve,reject) =>{
