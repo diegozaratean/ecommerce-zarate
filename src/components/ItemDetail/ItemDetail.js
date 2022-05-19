@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import {Card,Button,Row,Col} from 'react-bootstrap'
+import {Card,Button} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'
@@ -13,18 +12,16 @@ export default function ItemDetail({item}){
 					<div className="preview col-md-6">
 						
 						<div className="preview-pic tab-content">
-						  <div className="tab-pane active" id="pic-1"><img src={item.url} /></div>
+						  <div className="tab-pane active" id="pic-1"><img alt="productimage1" src={item.url} /></div>
 						  {/* <div className="tab-pane" id="pic-2"><img src={item.url} /></div>
 						  <div className="tab-pane" id="pic-3"><img src={item.url}/></div>
 						  <div className="tab-pane" id="pic-4"><img src={item.url}/></div>
 						  <div className="tab-pane" id="pic-5"><img src={item.url}/></div> */}
 						</div>
 						<ul className="preview-thumbnail nav nav-tabs">
-						  <li className="active"><a data-target="#pic-1" data-toggle="tab"><img src={item.url} /></a></li>
-						  <li><a data-target="#pic-2" data-toggle="tab"><img src={item.url} /></a></li>
-						  <li><a data-target="#pic-3" data-toggle="tab"><img src={item.url} /></a></li>
-						  <li><a data-target="#pic-4" data-toggle="tab"><img src={item.url} /></a></li>
-						  <li><a data-target="#pic-5" data-toggle="tab"><img src={item.url} /></a></li>
+						  <li className="active"><img alt="productimage2" src={item.url} /></li>
+						  <li><img alt="productimage3" src={item.url} /></li>
+						  <li><img alt="productimage4" src={item.url} /></li>
 						</ul>
 						
 					</div>

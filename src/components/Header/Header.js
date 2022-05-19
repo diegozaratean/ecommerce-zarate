@@ -1,6 +1,8 @@
 import logoImg from '../../assets/logo2.png';
-import {Navbar,Container,Nav,NavDropdown,Form,FormControl,Button} from 'react-bootstrap'
+import {Navbar,Container,Nav,NavDropdown} from 'react-bootstrap'
 import Carticon from '../CartIcon/CartIcon';
+import { Link } from 'react-router-dom'
+
 
 export default function Header(){
     
@@ -8,7 +10,11 @@ export default function Header(){
         <header className="header">
             <Navbar bg="dark" variant="dark" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="#"><img alt="logo" src={logoImg}/></Navbar.Brand>
+                    <Navbar.Brand>
+                        <Link to="/" >
+                            <img alt="logo" src={logoImg}/>
+                        </Link>
+                        </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -16,15 +22,14 @@ export default function Header(){
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Home</Nav.Link>
-                        <Nav.Link href="#action2">Novedades</Nav.Link>
+                        <Nav.Link><Link to="/" >Home</Link></Nav.Link>                        
                         <NavDropdown title="Categorias" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Misterio</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">Finanzas</NavDropdown.Item>
-                        <NavDropdown.Item href="#action6">Superación personal</NavDropdown.Item>
+                        <NavDropdown.Item ><Link to="/category/1" >Misterio </Link></NavDropdown.Item>
+                        <NavDropdown.Item ><Link to="/category/2" >Finanzas </Link></NavDropdown.Item>
+                        <NavDropdown.Item ><Link to="/category/3" >Superación personal </Link></NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action5">
-                            Recomendados
+                        <NavDropdown.Item >
+                        <Link to="/products/" >Recomendados </Link>
                         </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>

@@ -1,24 +1,28 @@
 import Alert from 'react-bootstrap/Alert'
-import ItemCount from '../ItemCount/ItemCount'
 import { toast } from "react-toastify";
 import {products} from "../../data/products"
 import ItemList from '../ItemList/ItemList';
 import React, { useEffect } from "react"
 
-export default function ItemListContainer({greeting}){
+export default function ItemListContainer({greeting,category_id}){
 
     const[productsItems, getProducts] = React.useState([])
 
     useEffect( () => {
         const getProductsTask = new Promise((resolve,reject) =>{
             setTimeout(() =>{
-                resolve(getProducts(products));
+                resolve();
             },3000)
         })
         getProductsTask.then((result) =>{
             console.log(result);
+            if (category_id){
+                getProducts(products.filter(item => item.category === +category_id))
+            }else{
+                getProducts(products)
+            }
         })
-    },[])
+    },[category_id])
     
 
     const addTocart = (count) =>{

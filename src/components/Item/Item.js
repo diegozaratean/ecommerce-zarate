@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import {Card,Button,Row,Col} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+
 export default function Item({item,  onAdd}){
     const [count, setCount] = useState(1);
     const addCount = () => {
@@ -15,13 +17,17 @@ export default function Item({item,  onAdd}){
     }
     return(
         <Card  style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={item.url} />
+            <Link to={`/product/${item.id}`} >
+                <Card.Img variant="top" src={item.url} />
+            </Link>
             <Card.Body>
-                <Card.Title>{item.title}</Card.Title>
-                <Card.Text>
-                    <b>Precio:</b>{item.price}
-                    <p>{item.description}</p>                    
-                </Card.Text>
+                <Link to={`/product/${item.id}`} >
+                    <Card.Title>{item.title}</Card.Title>
+                    <Card.Text>
+                        <b>Precio:</b>{item.price}<br></br>
+                        <span>{item.description}</span>
+                    </Card.Text>
+                </Link>
                 <Row>
                     <Col><button onClick={decreaseCount}> - </button></Col>
                     <Col>{count}</Col>
