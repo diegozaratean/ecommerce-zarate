@@ -3,8 +3,35 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import ItemCount from '../ItemCount/ItemCount'
+import { toast } from "react-toastify";
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function ItemDetail({item}){
+	let navigate = useNavigate();
+	const [quantityToAdd, setQuantityToAdd] = useState(1);
+	const [itemAdded, setItemAdded] = useState(false);
+
+	const onAdd = (quantityToAdd) => {
+		// Hemos recibido un evento del ItemCount
+        toast.success(`add to cart ${quantityToAdd} items!`, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+		setItemAdded(true)
+	}
+
+	const goToCart = (event) =>{
+		event.preventDefault();
+		navigate("/cart", { replace: true });
+	}
+
     return(
         <Card  >
             <div className="container-fliud">
@@ -46,8 +73,11 @@ export default function ItemDetail({item}){
 							<span className="color blue"></span>
 						</h5>
 						<div className="action">
+							{itemAdded ? <Button variant="primary" onClick={goToCart} >Ir al carrito </Button> : <ItemCount stock={item.stock} initial='1' onAdd={() => onAdd(quantityToAdd)}/>}
+							{/* <ItemCount stock='5' initial='1' onAdd={onAdd}/>
                             <Button variant="primary" >Agregar al carrito </Button>{' '}
-                            <Button variant="primary" ><FontAwesomeIcon icon={faHeart} /> </Button>{' '}							
+							<Button variant="primary" onClick={goToCart} >Ir al carrito </Button>{' '}
+                            <Button variant="primary" ><FontAwesomeIcon icon={faHeart} /> </Button>{' '} */}
 						</div>
 					</div>
 				</div>
