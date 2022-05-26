@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-
+import { CartProvider } from './context/CartContext'
 import Home from "./views/Home/Home"
 import Cart from "./views/Cart/Cart"
 import Products from "./views/Products/Products"
@@ -11,13 +11,15 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route exact path='/' element={<Home />}></Route>
-          <Route exact path='/products' element={<Products />}></Route>
-          <Route exact path='/cart' element={<Cart />}></Route>
-          <Route exact path='/product/:id' element={<Product />}></Route>
-          <Route exact path='/category/:id' element={<Categories />}></Route>
-        </Routes>        
+        <CartProvider>
+          <Routes>
+            <Route exact path='/' element={<Home />}></Route>
+            <Route exact path='/products' element={<Products />}></Route>
+            <Route exact path='/cart' element={<Cart />}></Route>
+            <Route exact path='/product/:id' element={<Product />}></Route>
+            <Route exact path='/category/:id' element={<Categories />}></Route>
+          </Routes>
+        </CartProvider>
       </BrowserRouter>
     </>
   );

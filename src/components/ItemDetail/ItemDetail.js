@@ -7,11 +7,17 @@ import ItemCount from '../ItemCount/ItemCount'
 import { toast } from "react-toastify";
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext'
+import React, { useEffect } from "react"
+import ItemProductCount from '../ItemProductCount/ItemProductCount'
+
 
 export default function ItemDetail({item}){
 	let navigate = useNavigate();
 	const [quantityToAdd, setQuantityToAdd] = useState(1);
 	const [itemAdded, setItemAdded] = useState(false);
+	const { addItem } =  React.useContext(CartContext);
+
 
 	const onAdd = (quantityToAdd) => {
 		// Hemos recibido un evento del ItemCount
@@ -73,7 +79,10 @@ export default function ItemDetail({item}){
 							<span className="color blue"></span>
 						</h5>
 						<div className="action">
-							{itemAdded ? <Button variant="primary" onClick={goToCart} >Ir al carrito </Button> : <ItemCount stock={item.stock} initial='1' onAdd={() => onAdd(quantityToAdd)}/>}
+							<ItemProductCount item = {item} onAdd={addItem}/>
+							{/* {itemAdded ? <Button variant="primary" onClick={goToCart} >Ir al carrito </Button> : <ItemCount stock={item.stock} initial='1' onAdd={() => addItem(quantityToAdd,item)}/>} */}
+							{/* <ItemCount stock={item.stock} initial='1' onAdd={() => setQuantityToAdd(quantityToAdd)}/>
+							<Button variant="primary" onClick={ ()=>addItem(quantityToAdd,item)}>Agregar al carrito </Button> */}
 							{/* <ItemCount stock='5' initial='1' onAdd={onAdd}/>
                             <Button variant="primary" >Agregar al carrito </Button>{' '}
 							<Button variant="primary" onClick={goToCart} >Ir al carrito </Button>{' '}

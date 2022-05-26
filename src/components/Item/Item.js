@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Card,Button,Row,Col} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import ItemProductCount from '../ItemProductCount/ItemProductCount'
 
 export default function Item({item,  onAdd}){
     const [count, setCount] = useState(1);
@@ -28,14 +29,15 @@ export default function Item({item,  onAdd}){
                         <span>{item.description}</span>
                     </Card.Text>
                 </Link>
-                <Row>
+                {/* <Row>
                     <Col><button onClick={decreaseCount}> - </button></Col>
                     <Col>{count}</Col>
                     <Col><button onClick={addCount}> + </button></Col>
                 </Row>                                
                 <Row>
-                    <Button variant="primary" onClick={ ()=>onAdd(count)}>Agregar al carrito </Button>{' '}
-                </Row>                                
+                    <Button variant="primary" onClick={ ()=>onAdd(count,item)}>Agregar al carrito </Button>
+                </Row>     */}
+                <ItemProductCount item = {item} onAdd={onAdd}/>
             </Card.Body>
         </Card>
     )
