@@ -5,10 +5,10 @@ import { CartContext } from '../../context/CartContext'
 import React from 'react'
 
 export default function Carticon({count}){
-    const { cart } =  React.useContext(CartContext);
+    const { countItems } =  React.useContext(CartContext);
     return(
         <div className="carticon-holder" >
-            <span>{cart.length}</span>
+            <span>{(countItems() > 0)?countItems():'-'}</span>
             <Link to="/cart" >                            
                 <FontAwesomeIcon icon={faCartShopping} />
                 <img alt="carticon" className="carticon" src="/images/cart2.png"/>

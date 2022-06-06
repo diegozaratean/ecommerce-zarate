@@ -44,12 +44,24 @@ const CartProvider = ({children}) => {
     const isInCart = (id) => {        
         return cart.find(item => item.id === id)
     }
+    const countItems = () => {    
+        console.log('se ejecuto 1');
+        let cartQuantity = 0
+        cart.map( (cartItem) => {
+            (
+                cartQuantity = cartQuantity + cartItem.quantity
+            )      
+        }
+        )
+        return cartQuantity
+    }
     return (
         <Provider value={{
             addItem,
             removeItem,
             clear,
             isInCart,
+            countItems,
             cart
         }}>{children}</Provider>
     )
