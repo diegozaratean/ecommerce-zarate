@@ -5,7 +5,8 @@ import Cart from "./views/Cart/Cart"
 import Products from "./views/Products/Products"
 import Product from "./views/Product/Product"
 import Categories from "./views/Categories/Categories"
-
+import Checkout from './views/Checkout/Checkout'
+import Order from './views/Order/Order'
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
             <Route exact path='/cart' element={<Cart />}></Route>
             <Route exact path='/product/:id' element={<Product />}></Route>
             <Route exact path='/category/:id' element={<Categories />}></Route>
+            <Route exact path='/checkout' element={<Checkout />}></Route>
+            <Route exact path='/order/:id' element={<Order />}></Route>
           </Routes>
         </CartProvider>
       </BrowserRouter>

@@ -28,16 +28,8 @@ export default function Item({item,  onAdd}){
                         <b>Precio:</b>{item.price}<br></br>
                         <span>{item.description}</span>
                     </Card.Text>
-                </Link>
-                {/* <Row>
-                    <Col><button onClick={decreaseCount}> - </button></Col>
-                    <Col>{count}</Col>
-                    <Col><button onClick={addCount}> + </button></Col>
-                </Row>                                
-                <Row>
-                    <Button variant="primary" onClick={ ()=>onAdd(count,item)}>Agregar al carrito </Button>
-                </Row>     */}
-                <ItemProductCount item = {item} onAdd={onAdd}/>
+                </Link>                
+                { item.stock > 0 && <ItemProductCount item = {item} onAdd={onAdd}/>} 
             </Card.Body>
         </Card>
     )

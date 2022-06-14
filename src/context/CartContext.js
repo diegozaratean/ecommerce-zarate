@@ -45,7 +45,6 @@ const CartProvider = ({children}) => {
         return cart.find(item => item.id === id)
     }
     const countItems = () => {    
-        console.log('se ejecuto 1');
         let cartQuantity = 0
         cart.map( (cartItem) => {
             (
@@ -55,6 +54,17 @@ const CartProvider = ({children}) => {
         )
         return cartQuantity
     }
+
+    const getCartTotal = () =>{
+        let cartTotal = 0
+        cart.map( (cartItem) => {
+            (
+                cartTotal = cartTotal + (cartItem.quantity*cartItem.price)
+            )      
+        }
+        )
+        return cartTotal
+    }
     return (
         <Provider value={{
             addItem,
@@ -62,6 +72,7 @@ const CartProvider = ({children}) => {
             clear,
             isInCart,
             countItems,
+            getCartTotal,
             cart
         }}>{children}</Provider>
     )
