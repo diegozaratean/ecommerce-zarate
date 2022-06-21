@@ -18,6 +18,7 @@ export default function Product (){
             if (snapshot.exists()){
                 getProduct(snapshot.data())
                 console.log(snapshot.data());
+                console.log(productItem);
             }            
         })
     },[id])
@@ -26,7 +27,11 @@ export default function Product (){
             <Header/> 
             <div>
                 <h1>Product</h1>
-                <ItemDetail item={productItem}  />   
+                { productItem.title ?
+                    <ItemDetail item={productItem}  />   
+                :
+                    <h2>No se encontro ningún producto</h2>
+                }                
             </div>
         </>        
     );
