@@ -2,10 +2,28 @@ import logoImg from '../../assets/logo2.png';
 import {Navbar,Container,Nav,NavDropdown} from 'react-bootstrap'
 import Carticon from '../CartIcon/CartIcon';
 import { Link } from 'react-router-dom'
+import {getFirestore,collection,getDocs,query,where} from 'firebase/firestore'
+import React, { useEffect } from "react"
 
 
 export default function Header(){
     
+    const[categories, setCategories] = React.useState([])
+
+    React.useEffect( () => {
+        const db = getFirestore(); 
+        const categoriesRef = collection(db,"categories")
+            getDocs(categoriesRef).then(snapshots => {
+                const data = snapshots.docs.map(doc => ({id: doc.id, ...doc.data()}))
+                console.log("categories data")
+                console.log(data)
+                setCategories(data)
+                console.log(categories.count)
+                
+            })     
+    },[])
+
+
     return(
         <header className="header">
             <Navbar bg="dark" variant="dark" expand="lg">
@@ -22,27 +40,23 @@ export default function Header(){
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link><Link to="/" >Home</Link></Nav.Link>                        
+                        <Nav.Link><Link to="/" >Home</Link></Nav.Link>     
                         <NavDropdown title="Categorias" id="navbarScrollingDropdown">
-                        <NavDropdown.Item ><Link to="/category/1" >Misterio </Link></NavDropdown.Item>
-                        <NavDropdown.Item ><Link to="/category/2" >Finanzas </Link></NavDropdown.Item>
-                        <NavDropdown.Item ><Link to="/category/3" >Superación personal </Link></NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item >
-                        <Link to="/products/" >Recomendados </Link>
-                        </NavDropdown.Item>
+                                {
+                                    categories && categories.map(category => {
+                                        console.log(category.name)
+                                        console.log(category.slug)
+                                        console.log(category.id)
+                                        return <NavDropdown.Item ><Link to={`/category/${category.slug}`} >{category.name} </Link></NavDropdown.Item>
+                                    })
+                                }
+                        </NavDropdown>                        
+                        <NavDropdown title="Admin" id="navbarScrollingDropdown1">
+                        <NavDropdown.Item ><Link to="/inventory" >Agregar inventario </Link></NavDropdown.Item>
+                        <NavDropdown.Item ><Link to="/orders" >Ordenes </Link></NavDropdown.Item>                    
                         </NavDropdown>
                     </Nav>
-                    {/* <Form className="d-flex">
-                        <FormControl
-                        type="search"
-                        placeholder="Search"
-                        className="me-2"
-                        aria-label="Search"
-                        />
-                        <Button variant="outline-success">Search</Button>
-                    </Form> */}
-                    <Carticon count={2} />
+                    <Carticon />
                     </Navbar.Collapse>
                 </Container>
                 </Navbar>     

@@ -4,14 +4,22 @@ import React, { useEffect } from "react"
 import { CartContext } from '../../context/CartContext'
 import {getFirestore,collection,getDocs,query,where} from 'firebase/firestore'
 
-export default function ItemListContainer({greeting,category_id}){
+export default function ItemListContainer({greeting,category_slug}){
     const { addItem } =  React.useContext(CartContext);
     const[productsItems, getProducts] = React.useState([])
+    const [category_id,setCategoryId] = React.useState([])
 
     React.useEffect( () => {
         const db = getFirestore();
-
-        if (category_id){
+        if (category_slug){
+            const categoryQuery = query(collection(db,"categories"),where("slug","==",category_slug))
+            getDocs(categoryQuery).then(snapshots => {
+                const data = snapshots.docs.map(doc => ({id: doc.id, ...doc.data()}))
+                console.log("categories slu")
+                console.log(data[0].id);
+                setCategoryId(data[0].id)
+                console.log(data); 
+            })
             //todos los productos por categoria
             const q = query(collection(db,"products"),where("category_id","==",+category_id))
             getDocs(q).then(snapshots => {
@@ -28,7 +36,7 @@ export default function ItemListContainer({greeting,category_id}){
                 getProducts(data)
             })            
         }                 
-    },[category_id])
+    },[category_slug,category_id])
 
     return (
         <>           

@@ -12,7 +12,7 @@ export default function Categories (){
             <Header/> 
             <div>
                 <h1>Categorias</h1>
-                <ItemListContainer greeting={'Bienvenido a la categoria'} category_id={id} />   
+                <ItemListContainer greeting={'Bienvenido a la categoria'} category_slug={id} />   
             </div>
         </>        
     );
