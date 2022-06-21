@@ -2,8 +2,6 @@ import Header from "../../components/Header/Header";
 import React, { useEffect } from "react"
 import {getFirestore,collection,getDocs,doc,runTransaction} from 'firebase/firestore'
 import {Row,Container,Col,Card,Button,Form} from 'react-bootstrap'
-import NumberFormat from "react-number-format"
-
 
 export default function Inventory (){
     const[productsItems, getProducts] = React.useState([])
