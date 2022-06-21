@@ -11,13 +11,6 @@ export default function ItemListContainer({greeting,category_id}){
     React.useEffect( () => {
         const db = getFirestore();
 
-        // //un producto
-        // const productRef = doc(db,"products","JiO9W79H8yDDaqKpHsND")
-        // getDoc(productRef).then(snapshot => {
-        //     if (snapshot.exists()){
-        //         console.log(snapshot.data());
-        //     }            
-        // })
         if (category_id){
             //todos los productos por categoria
             const q = query(collection(db,"products"),where("category_id","==",+category_id))
@@ -42,7 +35,6 @@ export default function ItemListContainer({greeting,category_id}){
             <Alert key='success' variant='success'>
                 {greeting}
             </Alert>
-            {/* <ItemCount stock='5' initial='1' onAdd={addTocart}/> */}
             <ItemList items = {productsItems} onAdd={addItem}/>
         </>   
 

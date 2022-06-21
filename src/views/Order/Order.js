@@ -7,7 +7,6 @@ import NumberFormat from "react-number-format"
 
 export default function Order (){
     const { id } =  useParams();
-    console.log(id);
     const[order, getOrder] = React.useState([])
 
     useEffect( () => {
@@ -17,7 +16,6 @@ export default function Order (){
         getDoc(orderRef).then(snapshot => {
             if (snapshot.exists()){
                 getOrder(snapshot.data())
-                console.log(snapshot.data());
             }            
         })
     },[id])
@@ -27,7 +25,7 @@ export default function Order (){
             <div>
                 {!(order.total) ?
                 (<>
-                    <h1>No se encontro la Orden</h1>    
+                    <h1>No se encontró la Orden</h1>    
                 </>):
                 (<>
                     <h1>Orden</h1>

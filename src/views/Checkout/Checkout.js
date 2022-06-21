@@ -13,9 +13,6 @@ export default function Checkout (){
     const { getCartTotal } =  React.useContext(CartContext);
     const { clear } =  React.useContext(CartContext);
 
-    console.log(data)
-    console.log(orderId)
-
     const handleChange = (event) => {
         const {name, value} = event.target;
         setData({...data,[name]: value});        

@@ -12,15 +12,10 @@ export default function Cart (){
     const { countItems } =  React.useContext(CartContext);
     const { getCartTotal } =  React.useContext(CartContext);
     
-    console.log(cart);
-    console.log(countItems());
-    console.log(getCartTotal());
     return (
         <>
             <Header/> 
             <div>
-                {/* <ItemDetailtContainer />
-                <ItemListContainer greeting={'Bienvenido a la tienda z commerce'} category_id={0} />    */}
                 <h1>Cart</h1>
                 {!(cart.length > 0) ?                 
                 (<>
