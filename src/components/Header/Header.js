@@ -15,11 +15,7 @@ export default function Header(){
         const categoriesRef = collection(db,"categories")
             getDocs(categoriesRef).then(snapshots => {
                 const data = snapshots.docs.map(doc => ({id: doc.id, ...doc.data()}))
-                console.log("categories data")
-                console.log(data)
                 setCategories(data)
-                console.log(categories.count)
-                
             })     
     },[])
 
@@ -44,10 +40,7 @@ export default function Header(){
                         <NavDropdown title="Categorias" id="navbarScrollingDropdown">
                                 {
                                     categories && categories.map(category => {
-                                        console.log(category.name)
-                                        console.log(category.slug)
-                                        console.log(category.id)
-                                        return <NavDropdown.Item ><Link to={`/category/${category.slug}`} >{category.name} </Link></NavDropdown.Item>
+                                        return <NavDropdown.Item key={category.id} ><Link to={`/category/${category.slug}`} >{category.name} </Link></NavDropdown.Item>
                                     })
                                 }
                         </NavDropdown>                        

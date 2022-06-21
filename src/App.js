@@ -7,6 +7,7 @@ import Product from "./views/Product/Product"
 import Categories from "./views/Categories/Categories"
 import Checkout from './views/Checkout/Checkout'
 import Order from './views/Order/Order'
+import Inventory from './views/Inventory/Inventory'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route exact path='/category/:id' element={<Categories />}></Route>
             <Route exact path='/checkout' element={<Checkout />}></Route>
             <Route exact path='/order/:id' element={<Order />}></Route>
+            <Route exact path='/inventory' element={<Inventory />}></Route>
           </Routes>
         </CartProvider>
       </BrowserRouter>

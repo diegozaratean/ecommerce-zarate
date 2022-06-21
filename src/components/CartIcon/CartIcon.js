@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 import React from 'react'
 
-export default function Carticon({count}){
+export default function Carticon(){
     const { countItems } =  React.useContext(CartContext);
     return(
         <div className="carticon-holder" >
