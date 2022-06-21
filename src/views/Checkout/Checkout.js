@@ -12,10 +12,15 @@ export default function Checkout (){
     const [orderId,setOrderId] = React.useState()
     const { getCartTotal } =  React.useContext(CartContext);
     const { clear } =  React.useContext(CartContext);
+    const [validateEmail,setValidateEmail] = React.useState(false)
 
     const handleChange = (event) => {
         const {name, value} = event.target;
-        setData({...data,[name]: value});        
+        setData({...data,[name]: value});   
+        document.getElementsByName("email")[0].value !== document.getElementsByName("confiremail")[0].value ?
+        setValidateEmail(true)
+         : setValidateEmail(false)
+
     }
 
     const handleSubmit = async (event) =>{
@@ -69,32 +74,30 @@ export default function Checkout (){
                 <Container> 
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control name="name" type="text" placeholder="Enter email" onChange={handleChange}/>                            
+                            <Form.Label>Nombre</Form.Label>
+                            <Form.Control name="name" type="text" placeholder="Ingresa nombe: ej Jhon" onChange={handleChange}/>                            
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control name="email" type="email" placeholder="Enter email" onChange={handleChange}/>
-                            <Form.Text className="text-muted" >
-                            We'll never share your email with anyone else.
-                            </Form.Text>
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control name="email" type="email" placeholder="Ingresa email: ej john@doe.com " onChange={handleChange}/>                            
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control name="confiremail" type="email" placeholder="Enter email" onChange={handleChange} />
-                            <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                            </Form.Text>
+                            <Form.Label>Confirmar Email</Form.Label>
+                            <Form.Control name="confiremail" type="email" placeholder="Confirma tu  email" onChange={handleChange} />
+                            { validateEmail && <Form.Text className="text-error">
+                            Los emails no coinciden!
+                            </Form.Text>}
+                            
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Phone</Form.Label>
-                            <Form.Control name="phone" type="number" placeholder="Enter phone" onChange={handleChange}/>                            
+                            <Form.Label>Telefono</Form.Label>
+                            <Form.Control name="phone" type="number" placeholder="Ingresa telefono: ej 31012345678" onChange={handleChange}/>                            
                         </Form.Group>
                         <Button variant="primary" type="submit">
-                            Submit
+                            Comprar
                         </Button>
                     </Form>
                 </Container>
