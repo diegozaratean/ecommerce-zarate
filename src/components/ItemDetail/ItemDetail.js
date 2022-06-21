@@ -79,14 +79,8 @@ export default function ItemDetail({item}){
 							<span className="color blue"></span>
 						</h5>
 						<div className="action">
-							<ItemProductCount item = {item} onAdd={addItem}/>
-							{/* {itemAdded ? <Button variant="primary" onClick={goToCart} >Ir al carrito </Button> : <ItemCount stock={item.stock} initial='1' onAdd={() => addItem(quantityToAdd,item)}/>} */}
-							{/* <ItemCount stock={item.stock} initial='1' onAdd={() => setQuantityToAdd(quantityToAdd)}/>
-							<Button variant="primary" onClick={ ()=>addItem(quantityToAdd,item)}>Agregar al carrito </Button> */}
-							{/* <ItemCount stock='5' initial='1' onAdd={onAdd}/>
-                            <Button variant="primary" >Agregar al carrito </Button>{' '}
-							<Button variant="primary" onClick={goToCart} >Ir al carrito </Button>{' '}
-                            <Button variant="primary" ><FontAwesomeIcon icon={faHeart} /> </Button>{' '} */}
+							{ item.stock > 0 && <ItemProductCount item = {item} onAdd={addItem}/>}
+							
 						</div>
 					</div>
 				</div>
