@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import { CartProvider } from './context/CartContext'
 import Home from "./views/Home/Home"
 import Cart from "./views/Cart/Cart"
 import Products from "./views/Products/Products"
@@ -9,12 +8,19 @@ import Checkout from './views/Checkout/Checkout'
 import Order from './views/Order/Order'
 import Inventory from './views/Inventory/Inventory'
 import Orders from './views/Orders/Orders'
+import { CartContext } from './context/CartContext'
+import React from 'react'
+
 
 function App() {
+  const { defineCart } =  React.useContext(CartContext);
+  const cart = localStorage.getItem("cart") != null ? JSON.parse(localStorage.getItem("cart")) : []
+  React.useEffect(() => {
+    defineCart(cart)
+  }, []);
   return (
     <>
       <BrowserRouter>
-        <CartProvider>
           <Routes>
             <Route exact path='/' element={<Home />}></Route>
             <Route exact path='/products' element={<Products />}></Route>
@@ -26,7 +32,6 @@ function App() {
             <Route exact path='/inventory' element={<Inventory />}></Route>
             <Route exact path='/orders' element={<Orders />}></Route>
           </Routes>
-        </CartProvider>
       </BrowserRouter>
     </>
   );

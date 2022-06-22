@@ -7,6 +7,14 @@ const {Provider} = CartContext
 const CartProvider = ({children}) => {
     const [cart,setCart] = React.useState([])
 
+    React.useEffect( () => {
+        localStorage.setItem("cart", JSON.stringify(cart))
+    },[cart])
+
+    const defineCart = (newCart) => {
+        setCart(newCart)
+    }
+
     const addItem = (count,item) => {
         console.log(cart);
         toast.success(`add to cart ${count} items!`, {
@@ -73,6 +81,7 @@ const CartProvider = ({children}) => {
             isInCart,
             countItems,
             getCartTotal,
+            defineCart,
             cart
         }}>{children}</Provider>
     )
