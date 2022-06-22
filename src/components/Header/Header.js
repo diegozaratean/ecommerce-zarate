@@ -36,7 +36,7 @@ export default function Header(){
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link><Link to="/" >Home</Link></Nav.Link>     
+                        <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <NavDropdown title="Categorias" id="navbarScrollingDropdown">
                                 {
                                     categories && categories.map(category => {

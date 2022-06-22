@@ -14,17 +14,13 @@ export default function ItemListContainer({greeting,category_slug}){
         if (category_slug){
             const categoryQuery = query(collection(db,"categories"),where("slug","==",category_slug))
             getDocs(categoryQuery).then(snapshots => {
-                const data = snapshots.docs.map(doc => ({id: doc.id, ...doc.data()}))
-                console.log("categories slu")
-                console.log(data[0].id);
+                const data = snapshots.docs.map(doc => ({id: doc.id, ...doc.data()}))        
                 setCategoryId(data[0].id)
-                console.log(data); 
             })
             //todos los productos por categoria
             const q = query(collection(db,"products"),where("category_id","==",+category_id))
             getDocs(q).then(snapshots => {
                 const data = snapshots.docs.map(doc => ({id: doc.id, ...doc.data()}))
-                console.log(data);
                 getProducts(data)         
             })
         }else{

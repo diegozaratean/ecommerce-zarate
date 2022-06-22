@@ -30,12 +30,11 @@ export default function Cart (){
                 </>):
                 (
                     <>
-                        <h1>Tienes {countItems()} elementos en tu carrito</h1>                        
+                        <h1>Tienes {countItems()} productos en tu carrito</h1>           
                         <Container>
                             {cart.map((cartItem) => {
                                 return(
-                                    <>
-                                        <Row key={cartItem.id}>
+                                    <Row key={cartItem.id}>
                                         <Card >
                                             <Row>
                                                 <Col md={{ span: 3 }}>
@@ -61,8 +60,7 @@ export default function Cart (){
                                                 </Col>
                                             </Row>                                            
                                         </Card>
-                                        </Row>                                        
-                                    </>
+                                    </Row>
                                 )                
                             })}
                             <Row >

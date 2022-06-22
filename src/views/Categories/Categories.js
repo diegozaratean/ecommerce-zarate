@@ -5,8 +5,6 @@ import ItemListContainer from '../../components/ItemListContainer/ItemListContai
 
 export default function Categories (){
     const { id } =  useParams();
-    console.log(id);
-    
     return (
         <>
             <Header/> 
