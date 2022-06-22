@@ -40,13 +40,13 @@ export default function Header(){
                         <NavDropdown title="Categorias" id="navbarScrollingDropdown">
                                 {
                                     categories && categories.map(category => {
-                                        return <NavDropdown.Item key={category.id} ><Link to={`/category/${category.slug}`} >{category.name} </Link></NavDropdown.Item>
+                                        return <NavDropdown.Item key={category.id} as={Link} to={`/category/${category.slug}`} >{category.name} </NavDropdown.Item>
                                     })
                                 }
                         </NavDropdown>                        
                         <NavDropdown title="Admin" id="navbarScrollingDropdown1">
-                        <NavDropdown.Item ><Link to="/inventory" >Agregar inventario </Link></NavDropdown.Item>
-                        <NavDropdown.Item ><Link to="/orders" >Ordenes </Link></NavDropdown.Item>                    
+                            <NavDropdown.Item as={Link} to="/inventory">Agregar inventario</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/orders">Ordenes </NavDropdown.Item>     
                         </NavDropdown>
                     </Nav>
                     <Carticon />
