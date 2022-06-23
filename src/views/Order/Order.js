@@ -42,13 +42,12 @@ export default function Order (){
                                     <Col md={{ span: 4 }}>
                                         <p className="text-center">Correo: <b>{order.buyer.email}</b></p>
                                     </Col>
-                                </Row>                                            
+                                </Row>                             
                             </Card>
                         </Row>
                         {order.items.map((cartItem) => {
                             return(
-                                <>
-                                    <Row key={cartItem.id}>
+                                <Row key={cartItem.id}>
                                     <Card >
                                         <Row>
                                             <Col md={{ span: 3 }}>
@@ -68,11 +67,10 @@ export default function Order (){
                                             <Col md={{ span: 2 }}>
                                                 <p>Total:</p>
                                                 <p><NumberFormat value={cartItem.quantity*cartItem.price} displayType={'text'}   thousandSeparator={'.'} decimalSeparator={" "} prefix={'$'} /></p>
-                                            </Col>                                            
-                                        </Row>                                            
+                                            </Col>
+                                        </Row>
                                     </Card>
-                                    </Row>                                        
-                                </>
+                                </Row>
                             )                
                         })}
                         <Row >
