@@ -45,6 +45,17 @@ const CartProvider = ({children}) => {
         setCart(newCart)
     }
 
+    const changeStockItem = (id,newStock) => {
+        const newCart =  cart.map(cartItem =>{
+            if (cartItem.id === id){
+                cartItem.quantity=newStock
+            }
+            return cartItem
+        }
+        )
+        setCart(newCart)
+    }
+
     const clear = () => {
         setCart([])
     }
@@ -82,6 +93,7 @@ const CartProvider = ({children}) => {
             countItems,
             getCartTotal,
             defineCart,
+            changeStockItem,
             cart
         }}>{children}</Provider>
     )
