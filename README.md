@@ -22,9 +22,11 @@ https://github.com/diegozaratean/ecommerce-zarate/
 ## Screenshots
 
 Checkout process
+
 ![Screenshot](CheckoutProcess.gif)
 
 Inventory management
+
 ![Screenshot](inventorymanagement.gif)
 
 
