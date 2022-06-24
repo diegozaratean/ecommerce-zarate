@@ -9,6 +9,7 @@ This is an Ecommerce develop in React
 - Dynamic categories from firebase 
 - Stock validation on order fulfillment
 - Cart persistent with Local Storage
+- Order List
 
 
 ## Demo
@@ -20,8 +21,14 @@ https://github.com/diegozaratean/ecommerce-zarate/
 
 ## Screenshots
 
+Checkout process
+![Screenshot](CheckoutProcess.gif)
+
+Inventory management
 ![Screenshot](inventorymanagement.gif)
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+
 
 
 ## Run Locally
