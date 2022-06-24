@@ -15,7 +15,7 @@ This is an Ecommerce develop in React
 ## Demo
 
 A quick demo could be seen in here
-https://ecommerce-zarate-8nhofm16h-diegozaratean-gmailcom.vercel.app/
+https://ecommerce-zarate.vercel.app/
 
 
 
