@@ -1,7 +1,7 @@
 
-# Ecommerce REact App
+# Ecommerce React App
 
-This is an Ecommerce develop in REact
+This is an Ecommerce develop in React
 
 ## Features
 
@@ -56,11 +56,17 @@ Start the server
 To run this project, you will need to add the following environment variables to your .env file
 
 `REACT_APP_FIREBASE_API_KEY`
+
 `REACT_APP_AUTHDOMAIN`
+
 `REACT_APP_FIREBASEPROJECTID`
+
 `REACT_APP_STORAGEBUCKET`
+
 `REACT_APP_MESSAGINGSENDERID`
+
 `REACT_APP_APPID`
+
 `REACT_APP_MESUREMENTEID`
 
 
@@ -69,8 +75,12 @@ To run this project, you will need to add the following environment variables to
 The libraries use in this project:
 
 react-bootstrap
+
 fontawesome
+
 firebase
+
 react-toastify
+
 react-number-format
 
